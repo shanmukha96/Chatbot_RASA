@@ -1,0 +1,99 @@
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: false
+intents:
+- restaurant_search
+- email
+- greet
+- location
+- cuisine
+- price
+- not
+- affirm
+- goodbye
+- stop
+entities:
+- cuisine
+- email
+- location
+- not
+- price
+slots:
+  cuisine:
+    type: text
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: true
+  got_all:
+    type: text
+    influence_conversation: true
+  location:
+    type: text
+    influence_conversation: true
+  location_valid:
+    type: text
+    influence_conversation: true
+  price:
+    type: text
+    influence_conversation: true
+  results_found:
+    type: bool
+    influence_conversation: true
+responses:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: chinese
+      title: Chinese
+    - payload: mexican
+      title: Mexican
+    - payload: italian
+      title: Italian
+    - payload: american
+      title: American
+    - payload: thai
+      title: Thai
+    - payload: north indian
+      title: North Indian
+    text: what kind of cuisine would you like to have?
+  utter_ask_howcanhelp:
+  - text: Hi there! How may I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_price:
+  - buttons:
+    - payload: low
+      title: Lesser than Rs. 300
+    - payload: mid
+      title: Rs. 300 to 700
+    - payload: high
+      title: More than 700
+    text: what is your price range?
+  utter_default:
+  - text: Can you specify some other location
+  utter_email_prompt:
+  - text: Should I send you details of all the restaurants on email?
+  utter_goodbye:
+  - text: Goodbye
+  - text: Bon Appetit!
+  utter_greet:
+  - text: Hi there! How may I help you?
+  utter_request_email:
+  - text: To what email id should I send it to?
+  utter_mail_sent:
+  - text: Sent. Bon Appetit!
+  - text: Sent
+actions:
+- action_search_restaurants
+- action_send_email
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_price
+- utter_default
+- utter_email_prompt
+- utter_goodbye
+- utter_greet
+- utter_mail_sent
+- utter_request_email
+version: '2.0'
